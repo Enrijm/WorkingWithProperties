@@ -20,6 +20,9 @@ public class AppProperties {
 	@Autowired
 	private NestedProperties nestedProperties;
 
+	@Autowired
+	private ConversionProperties conversionProperties;
+
 	public static void main(String[] args) {
 		SpringApplication.run(AppProperties.class, args);
 	}
@@ -30,8 +33,12 @@ public class AppProperties {
 //		System.out.println(simpleProperties);
 //		System.out.println("Inmutable properties info...");
 //		System.out.println(inmutableProperties);
-		System.out.println("Nested properties info...");
-		System.out.println(nestedProperties);
+//		System.out.println("Nested properties info...");
+//		System.out.println(nestedProperties);
+		System.out.println("Conversion properties info...");
+		System.out.println(conversionProperties.getDuration() + "ns");
+		System.out.println(conversionProperties.getPeriod().getYears() + "years" + conversionProperties.getPeriod().getDays() + "days");
+		System.out.println(conversionProperties.getDataSize().toTerabytes() + "TeraBytes");
 	}
 
 }
